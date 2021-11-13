@@ -1,10 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            {% block title %}
+            Login
+            {% endblock %}
+        </title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+    <h2><a href="{% url 'Login:list' %}">LOGO</a></h2>
+    <div class="wrapper">
+         {%  block content %}
+        {% endblock %}
+    </div>
+
+    </body>
 </html>

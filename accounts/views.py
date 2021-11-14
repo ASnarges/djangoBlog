@@ -22,7 +22,10 @@ def login2_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('Login:list')
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('Login:list')
 
     else:
         form = AuthenticationForm()

@@ -3,9 +3,11 @@
     profile
 {% endblock %}
 {% block content %}
-    <div class="profile">
+
 {#        <img src="{{ Login.image.url }}" alt="">#}
-        <h1>{{ profile.name }} {{ profile.lastname }}</h1>
+        <p class="info"> More Information about: </p>
+        <h2 class="name"> {{ profile.name }} {{ profile.lastname }} </h2>
+        <div class="profile">
         <p>Phone Number :  {{ profile.phonenumber }}</p>
         <p>Address  :  {{ profile.address }}</p>
         {%  if profile.gender == 0 %}
@@ -17,7 +19,7 @@
     </div>
 {#    <h2><a href="{% url 'Login:edit' %}">Edit</a></h2>#}
 
-    <h1> Edit</h1>
+    <p class="edit" > Edit</p>
     <form class="site-form" action="/Login/profile" method="POST">
         {{ form }}
         {% csrf_token %}

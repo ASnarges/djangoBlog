@@ -11,7 +11,7 @@
             <div class="userha">
             <ui>
                 <li>
-                <a href="{% url 'Login:profile' name=user.name %}">{{ user.name }},{{ user.lastname }}</a>
+                <a href="{% url 'Login:profile' name=user.name %}">{{ user.name }} {{ user.lastname }}</a>
                 </li>
             </ui>
 {#                <ul>#}

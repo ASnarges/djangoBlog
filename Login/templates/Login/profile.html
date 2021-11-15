@@ -15,4 +15,25 @@
               <p>Gender: Female</p>
         {% endif %}
     </div>
+{#    <h2><a href="{% url 'Login:edit' %}">Edit</a></h2>#}
+
+    <h1> Edit</h1>
+    <form class="site-form" action="/Login/profile" method="POST">
+        {{ form }}
+        {% csrf_token %}
+        <input type="submit" name="" value="Edit">
+    </form>
+
 {%endblock%}
+
+{##}
+{#    <div class="create_signup">#}
+{#    <h1>#}
+{#        Signup#}
+{#    </h1>#}
+{#        <form class="site-form" action="/Login/signup" method="POST">#}
+{#            {{ form }}#}
+{#            {% csrf_token %}#}
+{#            <input type="submit" name="" value="Signup">#}
+{#        </form>#}
+{#    </div>#}

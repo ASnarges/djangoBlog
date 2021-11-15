@@ -34,6 +34,10 @@ def createsignup (request):
         form = forms.CreateSignup()
     return render(request, 'Login/create_signup.html', {'form':form} )
 
+def profile(request, name):
+    profile = models.User_signup.objects.get(name=name)
+    return render(request, 'Login/profile.html', {'profile': profile})
+
 @login_required(login_url="/accounts/login2")
 def create_article(request):
     if request.method == 'POST':

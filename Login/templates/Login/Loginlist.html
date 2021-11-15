@@ -9,13 +9,17 @@
     <div class="userha">
         {% for user in userha %}
             <div class="userha">
-{#            <h2><a href="{% url 'Login:detail' slug=article.slug %}">{{ article.title }}</a></h2>#}
-                <ul>
-                    <li>
-                        {{ user.name }},{{ user.lastname }}
-                    </li>
+            <ui>
+                <li>
+                <a href="{% url 'Login:profile' name=user.name %}">{{ user.name }},{{ user.lastname }}</a>
+                </li>
+            </ui>
+{#                <ul>#}
+{#                    <li>#}
+{#                        {{ user.name }},{{ user.lastname }}#}
+{#                    </li>#}
 {#                    {{ user.phonenumber }},{{ user.address }},{{ user.gender }}#}
-                </ul>
+{#                </ul>#}
             </div>
         {% endfor %}
      </div>

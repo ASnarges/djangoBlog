@@ -5,3 +5,4 @@ from . import models
 admin.register(models.Article)
 
 admin.site.register(models.Article)
+admin.site.register(models.User_signup)

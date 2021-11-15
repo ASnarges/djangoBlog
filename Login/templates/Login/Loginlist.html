@@ -3,16 +3,32 @@
     Login
 {% endblock %}
 {% block content %}
-        <h1>Loginlist</h1>
-    <div class="articles">
-        {% for article in articles %}
-            <div class="article">
-            <h2><a href="{% url 'Login:detail' slug=article.slug %}">{{ article.title }}</a></h2>
-            <p>{{ article.snippet }}</p>
-            <p>{{ article.date }}</p>
-            <p class="author">added by {{ article.author.username }}</p>
+    <h1>Wellcome to this Site!</h1>
+    <img src="/static/class.jpg" alt="well">
+    <h2>List of people who are members of the site:</h2>
+    <div class="userha">
+        {% for user in userha %}
+            <div class="userha">
+{#            <h2><a href="{% url 'Login:detail' slug=article.slug %}">{{ article.title }}</a></h2>#}
+                <ul>
+                    <li>
+                        {{ user.name }},{{ user.lastname }}
+                    </li>
+{#                    {{ user.phonenumber }},{{ user.address }},{{ user.gender }}#}
+                </ul>
             </div>
         {% endfor %}
      </div>
+
+{#    <div class="articles">#}
+{#        {% for article in articles %}#}
+{#            <div class="article">#}
+{#            <h2><a href="{% url 'Login:detail' slug=article.slug %}">{{ article.title }}</a></h2>#}
+{#            <p>{{ article.snippet }}</p>#}
+{#            <p>{{ article.date }}</p>#}
+{#            <p class="author">added by {{ article.author.username }}</p>#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#     </div>#}
 
 {%endblock%}

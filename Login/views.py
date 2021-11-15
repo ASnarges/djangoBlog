@@ -4,10 +4,18 @@ from django.contrib.auth.decorators import login_required
 from . import forms
 
 # Create your views here.
-def Login_list(request):
-    articles = models.Article.objects.all().order_by('-date')
+# def Login_list(request):
+#     #articles = models.Article.objects.all().order_by('-date')
+#     userr = models.User.objects.all()
+#     args = {'userr': userr}
+#
+#     #args = {'articles': articles}
+#     return render(request, 'Login/Loginlist.html',args)
 
-    args = {'articles': articles}
+def User_list(request):
+    userha= models.User_signup.objects.all().order_by('name')
+    args = {'userha': userha}
+
     return render(request, 'Login/Loginlist.html',args)
 
 
@@ -15,6 +23,16 @@ def Login_detail(request, slug):
     # return HttpResponse(slug)
     login= models.Article.objects.get(slug=slug)
     return render(request, 'Login/Login_detail.html', {'Login':login})
+
+def createsignup (request):
+    if request.method == 'POST':
+        form = forms.CreateSignup(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Login:list')
+    else:
+        form = forms.CreateSignup()
+    return render(request, 'Login/create_signup.html', {'form':form} )
 
 @login_required(login_url="/accounts/login2")
 def create_article(request):
@@ -24,6 +42,7 @@ def create_article(request):
             instance = form.save(commit=False)
             instance.author = request.user
             instance.save()
+            form.save()
             return redirect('Login:list')
     else:
         form = forms.CreateArticle()

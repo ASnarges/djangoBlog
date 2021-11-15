@@ -3,8 +3,10 @@ from . import views
 
 app_name = "Login"
 urlpatterns = [
-    path('', views.Login_list, name="list"),
+    path('', views.User_list, name="list"),
     path('create', views.create_article, name= "create"),
+    path('signup', views.createsignup, name="signup"),
     path('<slug>', views.Login_detail, name= "detail"),
 
 ]
+

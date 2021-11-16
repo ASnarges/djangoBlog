@@ -4,7 +4,6 @@
 {% endblock %}
 {% block content %}
 
-{#        <img src="{{ Login.image.url }}" alt="">#}
         <p class="info"> More Information about: </p>
         <h2 class="name"> {{ profile.name }} {{ profile.lastname }} </h2>
         <div class="profile">
@@ -17,25 +16,6 @@
               <p>Gender: Female</p>
         {% endif %}
     </div>
-     <a class="edit-link" href="{% url 'Login:edit' name=profile.name %}">Edit</a>
-{#        <a href="{% url 'Login:edit' %}">Edit</a>#}
-{#    <p class="edit" > Edit</p>#}
-{#    <form class="site-form" action="/Login/profile" method="POST">#}
-{#        {{ form }}#}
-{#        {% csrf_token %}#}
-{#        <input type="submit" name="" value="Edit">#}
-{#    </form>#}
+     <a class="edit-link" href="{% url 'Login:edit' id=profile.id %}">Edit</a>
 
 {%endblock%}
-
-{##}
-{#    <div class="create_signup">#}
-{#    <h1>#}
-{#        Signup#}
-{#    </h1>#}
-{#        <form class="site-form" action="/Login/signup" method="POST">#}
-{#            {{ form }}#}
-{#            {% csrf_token %}#}
-{#            <input type="submit" name="" value="Signup">#}
-{#        </form>#}
-{#    </div>#}

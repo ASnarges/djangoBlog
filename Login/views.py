@@ -3,15 +3,6 @@ from . import models
 from django.contrib.auth.decorators import login_required
 from . import forms
 
-# Create your views here.
-# def Login_list(request):
-#     #articles = models.Article.objects.all().order_by('-date')
-#     userr = models.User.objects.all()
-#     args = {'userr': userr}
-#
-#     #args = {'articles': articles}
-#     return render(request, 'Login/Loginlist.html',args)
-
 def User_list(request):
     userha= models.User_signup.objects.all().order_by('name')
     args = {'userha': userha}
@@ -36,21 +27,28 @@ def createsignup (request):
 
 def profile(request, name):
     profile = models.User_signup.objects.get(name=name)
-    # if request.method == 'POST':
-    #     return render(request, 'Login/edit.html', {'edit: '})
-    # else:
     if request.method== 'POST':
         formedit= forms.CreateSignup(request.POST)
         if formedit.is_valid():
             profile.delete()
             formedit.save()
-            # instanc = formedit.save(commit=False)
-    #         # INja shart bezaram
-    #         formedit.save()
             return redirect('Login:list')
     else:
         formedit = forms.CreateSignup()
-    return render(request, 'Login/profile.html', {'profile': profile , 'form': formedit})
+    return render(request, 'Login/profile.html', {'profile': profile , 'name': name})
+
+
+def edit (request, name):
+    if request.method == 'POST':
+        form = forms.CreateSignup(request.POST)
+        form.save()
+        return redirect('Login:list')
+    else:
+        person = models.User_signup.objects.get(name=name)
+        form = forms.CreateSignup(instance=person)
+        person.delete()
+    return render(request, 'Login/edit.html', {'form':form})
+
 
 @login_required(login_url="/accounts/login2")
 def create_article(request):

@@ -14,16 +14,6 @@ class UserManager(models.Manager):
     def females(self):
         return self.all().filter(gender=self.GENDER_FEMALE)
 
-# class Article(models.Model):
-#     name = models.CharField()
-#     lastname = models.CharField()
-#     birthday = models.DateTimeField()
-#     phonenumber = models.IntegerField
-#     address = models.TextField
-#     # gender= models.TextChoices()
-#     # gender= models.BooleanField(default=False)
-#     gender = models.IntegerField(choices=UserManager.GENDER_CHOICES)
-
 class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField()
@@ -42,7 +32,7 @@ def snippet(self):
 class User_signup(models.Model):
     name = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
-    #birthday = models.DateTimeField(null=True)
+    #birthday = models.DateField(null=True)
     phonenumber = models.CharField(max_length=20)
     address = models.TextField()
     gender = models.IntegerField(choices=UserManager.GENDER_CHOICES)

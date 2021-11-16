@@ -17,14 +17,14 @@
               <p>Gender: Female</p>
         {% endif %}
     </div>
-{#    <h2><a href="{% url 'Login:edit' %}">Edit</a></h2>#}
-
-    <p class="edit" > Edit</p>
-    <form class="site-form" action="/Login/profile" method="POST">
-        {{ form }}
-        {% csrf_token %}
-        <input type="submit" name="" value="Edit">
-    </form>
+     <a class="edit-link" href="{% url 'Login:edit' name=profile.name %}">Edit</a>
+{#        <a href="{% url 'Login:edit' %}">Edit</a>#}
+{#    <p class="edit" > Edit</p>#}
+{#    <form class="site-form" action="/Login/profile" method="POST">#}
+{#        {{ form }}#}
+{#        {% csrf_token %}#}
+{#        <input type="submit" name="" value="Edit">#}
+{#    </form>#}
 
 {%endblock%}
 

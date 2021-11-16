@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="create_signup">
+    <h1>
+        Edit
+    </h1>
+        <form class="site-form" action="/Login/<name>/edit" method="POST">
+            {{ form }}
+            {% csrf_token %}
+            <input type="submit" name="" value="Edit">
+        </form>
+    </div>
+{% endblock %}

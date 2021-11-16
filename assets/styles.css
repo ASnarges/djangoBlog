@@ -170,3 +170,12 @@ img{
     padding-bottom: 30px;
     text-align:center;
 }
+a.edit-link {
+    font-size: 30px;
+    padding:9px 9px 9px 9px;
+    border:1.5px solid #ad3131;
+    border-radius:5px;
+    color: #fff;
+    background-color: #ff5722;
+    margin: 10px 0;
+}

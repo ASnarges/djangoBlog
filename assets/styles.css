@@ -1,9 +1,8 @@
 body{
-    background-color: #0f121f;
+
     background-image: url("background.jpg");
     background-repeat-y: no-repeat;
     background-attachment: fixed;
-    color: #680404;
 }
 body * {
     font-family: Arial, serif;
